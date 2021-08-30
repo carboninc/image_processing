@@ -151,6 +151,7 @@ module ImageProcessing
 
       # Appends a raw ImageMagick command-line argument to the command.
       def append(*args)
+        magick.args.unshift(args[0], args[1].to_s) if args.include?('-density')
         magick.merge! args
       end
 
